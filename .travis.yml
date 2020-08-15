@@ -4,7 +4,7 @@ services:
     - docker
 
 before_install:
-    - docker build -t gadirlih/client-dev-test -f Dockerfile.dev ./client
+    - docker build -t gadirlih/client-dev-test -f ./client/Dockerfile.dev ./client
 
 script:
     - docker run -e CI=true gadirlih/client-dev-test npm run test
