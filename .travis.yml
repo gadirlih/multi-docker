@@ -21,3 +21,17 @@ after_success:
     - docker push gadirlih/multi-nginx
     - docker push gadirlih/multi-server
     - docker push gadirlih/multi-worker
+
+# edge: true
+
+deploy:
+    provider: elasticbeanstalk
+    region: us-east-1
+    app: multi-docker
+    env: MultiDocker-env
+    bucket_name: elasticbeanstalk-us-east-1-211596437030
+    bucket_path: multi-docker
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
